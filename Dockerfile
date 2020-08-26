@@ -6,7 +6,7 @@
 #    By: sookim <sookim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/26 15:59:30 by sookim            #+#    #+#              #
-#    Updated: 2020/08/26 17:38:11 by sookim           ###   ########.fr        #
+#    Updated: 2020/08/26 17:41:29 by sookim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,11 +24,11 @@ RUN	apt-get -y install php-fpm
 RUN	echo "<?php phpinfo(); ?>" >> /var/www/html/phpinfo.php
 RUN	apt-get -y install mariadb-server php-mysql
 COPY ./srcs/phpmyadmin ./
-RUN		tar -xvf phpmyadmin.tar.gz
+RUN		tar -xvf phpmyadmin.tar
 RUN		mv phpmyadmin /var/www/html/
 RUN		cp -rp var/www/html/phpmyadmin/config.sample.inc.php var/www/html/phpmyadmin/config.inc.php
 COPY    ./srcs/wordpress ./
-RUN		tar -xvf wordpress.tar.gz
+RUN		tar -xvf wordpress.tar
 RUN		mv wordpress/ var/www/html/
 RUN		chown -R www-data:www-data /var/www/html/wordpress
 RUN		cp var/www/html/wordpress/wp-config-sample.php var/www/html/wordpress/wp-config.php
